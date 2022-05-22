@@ -32,12 +32,29 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.download-out {
+.download-mobile {
   display: none;
   text-align: center;
 }
 
-.download-out button {
+.download-mobile .home {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  color: var(--container-color-alt);
+  background-color: var(--text-color);
+}
+
+.download-mobile .home:active {
+  transform: scale(90%);
+}
+
+.download-mobile button {
   cursor: pointer;
   width: 128px;
   height: 64px;
@@ -47,26 +64,24 @@ body {
   border-radius: 14px;
   color: var(--text-color);
   background: #f0efef;
-  box-shadow: 5px 5px 3px #bbbaba,
-    -5px -5px 3px #ffffff;
+  box-shadow: 5px 5px 3px #bbbaba, -5px -5px 3px #ffffff;
 }
 
-.download-out button:active {
+.download-mobile button:active {
   color: var(--text-color-light);
   border-radius: 14px;
   background: #f0efef;
-  box-shadow: inset 5px 5px 3px #bbbaba,
-    inset -5px -5px 3px #ffffff;
+  box-shadow: inset 5px 5px 3px #bbbaba, inset -5px -5px 3px #ffffff;
 }
 
-.download-out p {
+.download-mobile p {
   font-size: 26px;
   font-weight: 600;
   margin: 0 16px;
   color: var(--text-color);
 }
 
-.download-out i {
+.download-mobile i {
   font-weight: 500;
   font-size: 48px;
   margin: 0 16px;
@@ -85,7 +100,7 @@ body {
     display: none;
   }
 
-  .download-out {
+  .download-mobile {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -203,7 +218,6 @@ section .content {
 }
 
 /* End Side Left */
-
 
 /* Start Side Right */
 .side-right .header {

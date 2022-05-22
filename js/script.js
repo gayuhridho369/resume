@@ -1,4 +1,4 @@
-const downloadOut = document.querySelector("#downloadOut");
+const downloadMobile = document.querySelector("#downloadMobile");
 const main = document.querySelector("#main");
 const download = document.querySelector("#download");
 
@@ -18,13 +18,7 @@ const options = {
   jsPDF: { format: "a4", orientation: "portrait" },
 };
 
-download.addEventListener("click", function () {
-  hideDownload();
-  html2pdf(main, options);
-  setTimeout(showDownload, 3000);
-});
-
-downloadOut.addEventListener("click", function () {
+function downloadOnMobile() {
   main.style.display = "grid";
   hideDownload();
   html2pdf(main, options);
@@ -32,7 +26,16 @@ downloadOut.addEventListener("click", function () {
   setTimeout(function () {
     main.style.display = "none";
   }, 500);
-});
+}
+
+function downloadOnDesktop() {
+  hideDownload();
+  html2pdf(main, options);
+  setTimeout(showDownload, 3000);
+}
+
+download.addEventListener("click", downloadOnDesktop);
+downloadMobile.addEventListener("click", downloadOnMobile);
 
 window.addEventListener("resize", function () {
   const viewportWidth = window.innerWidth;
@@ -42,3 +45,12 @@ window.addEventListener("resize", function () {
     main.style.display = "grid";
   }
 });
+
+(function () {
+  const viewportWidth = window.innerWidth;
+  if (viewportWidth < 900) {
+    downloadOnMobile();
+  } else {
+    downloadOnDesktop();
+  }
+})();
