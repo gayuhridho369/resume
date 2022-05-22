@@ -10,12 +10,6 @@ function showDownload() {
   download.classList.remove("hidden");
 }
 
-function downloadPDF() {
-  hideDownload();
-  html2pdf(main, options);
-  setTimeout(showDownload, 3000);
-}
-
 const options = {
   margin: 0,
   filename: "Gayuh Ridho (Resume).pdf",
@@ -24,5 +18,27 @@ const options = {
   jsPDF: { format: "a4", orientation: "portrait" },
 };
 
-download.addEventListener("click", downloadPDF);
-downloadOut.addEventListener("click", downloadPDF);
+download.addEventListener("click", function () {
+  hideDownload();
+  html2pdf(main, options);
+  setTimeout(showDownload, 3000);
+});
+
+downloadOut.addEventListener("click", function () {
+  main.style.display = "grid";
+  hideDownload();
+  html2pdf(main, options);
+  setTimeout(showDownload, 1000);
+  setTimeout(function () {
+    main.style.display = "none";
+  }, 500);
+});
+
+window.addEventListener("resize", function () {
+  const viewportWidth = window.innerWidth;
+  if (viewportWidth < 900) {
+    main.style.display = "none";
+  } else {
+    main.style.display = "grid";
+  }
+});
