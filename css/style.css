@@ -35,7 +35,28 @@ body {
 .download-out {
   display: none;
   text-align: center;
+}
+
+.download-out button {
   cursor: pointer;
+  width: 128px;
+  height: 64px;
+  border: none;
+  outline: none;
+  margin-top: 12px;
+  border-radius: 14px;
+  color: var(--text-color);
+  background: #f0efef;
+  box-shadow: 5px 5px 3px #bbbaba,
+    -5px -5px 3px #ffffff;
+}
+
+.download-out button:active {
+  color: var(--text-color-light);
+  border-radius: 14px;
+  background: #f0efef;
+  box-shadow: inset 5px 5px 3px #bbbaba,
+    inset -5px -5px 3px #ffffff;
 }
 
 .download-out p {
@@ -47,22 +68,8 @@ body {
 
 .download-out i {
   font-weight: 500;
-  font-size: 64px;
+  font-size: 48px;
   margin: 0 16px;
-  animation: photo-move infinite 1s linear;
-  transition: all 0.5s ease-in-out;
-}
-
-@keyframes photo-move {
-
-  0%,
-  100% {
-    transform: scale(100%);
-  }
-
-  50% {
-    transform: scale(90%);
-  }
 }
 
 @media only screen and (max-width: 900px) {
